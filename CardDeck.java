@@ -5,13 +5,11 @@ import java.util.List;
 public class CardDeck {
     private static final String[] PATTERNS = {"spade", "heart", "diamond", "club"};
     private static final int CARD_COUNT = 13;
-
     private List<Card> cards;
 
     public Card getCard() {
         return null;
     }
-    //수정1
 
     public CardDeck() {
         cards = this.generateCards();
@@ -23,8 +21,10 @@ public class CardDeck {
         for (String pattern : PATTERNS) {
             for (int i = 1; i < CARD_COUNT; i++) {
                // Card card = new Card();
-                String denoination = this.numberToDenomination(i);
-                Card card = new Card(pattern,denoination);
+                //String denoination = this.numberToDenomination(i);
+                //int point = this.numberToPoint(i);
+                //Card card = new Card(pattern,denoination, point);
+                Card card = new Card(pattern, i);
                // card.setDenomination(denoination);
                //card.setPattern(pattern);
                 cards.add(card);
@@ -33,19 +33,28 @@ public class CardDeck {
         return  cards;
     }
 
-    private String numberToDenomination(int number){
-        if(number == 1){
-            return "A";
-        }else if(number == 11){
-            return "J";
-        }else if(number == 12){
-            return "Q";
-        }else if(number == 13){
-            return "K";
-        }
+    /*  private String numberToDenomination(int number){
+          if(number == 1){
+              return "A";
+          }else if(number == 11){
+              return "J";
+          }else if(number == 12){
+              return "Q";
+          }else if(number == 13){
+              return "K";
+          }
 
-        return String.valueOf(number);
-    }
+          return String.valueOf(number);
+      }
+
+      private int numberToPoint(int number){
+          if (number >= 11){
+              return 10;
+          }
+          return number;
+      }
+      card class가 해야 할 일
+  */
 
     public Card draw(){
         Card selectedCard = getRandomCard();
